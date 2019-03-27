@@ -113,11 +113,11 @@ a {
   border-color: #31347B;
  }
  
- /*Custom icon scolors*/
- .bug-icon-color{
+ /*Custom icon colors*/
+ .icon-color-one{
      color: #F4A4B2;
      }
- .feature-icon-color{
+ .icon-color-two{
     color: #EEE8AF;
      }
      

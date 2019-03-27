@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
-    <a class="navbar-brand" href="{% url 'index' %}"><i class="fas fa-user-astronaut fa-lg mb-2"></i><small>Interstellar Issue Tracker</small></a>
+    <a class="navbar-brand" href="{% url 'index' %}"><i class="fas fa-user-astronaut fa-lg mb-2"></i><small> Interstellar Issue Tracker</small></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -10,15 +10,15 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"><strong>Account</strong></a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="{% url 'profile' %}"><i class="fa fa-user"></i> Profile</a>
-                    <a class="dropdown-item" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i></i> Log Out</a>
+                    <a class="dropdown-item" href="{% url 'profile' %}"><i class="fa fa-user icon-color-two"></i> Profile</a>
+                    <a class="dropdown-item" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt icon-color-one"></i></i> Log Out</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"><strong>Tickets</strong></a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#"><i class="fa fa-bug bug"></i> Bugs</a>
-                    <a class="dropdown-item" href="#"><i class="fas fa-lightbulb "></i></i> Features</a>
+                    <a class="dropdown-item" href="{% url 'get_bugs' %}"><i class="fa fa-bug bug icon-color-one"></i> Bugs</a>
+                    <a class="dropdown-item" href="#"><i class="fas fa-lightbulb icon-color-two"></i></i> Features</a>
                 </div>
             </li>
             <li class="nav-item">
