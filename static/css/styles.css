@@ -1,0 +1,145 @@
+/*--------------------------------------------Global Styles Styles*/
+
+html,
+body {
+    background: url(../img/nasa.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: 'Roboto', sans-serif;
+}
+html,
+body,
+.table {
+    color: #FDF5EA;
+}
+
+/*Navbar*/
+.navbar-dark .navbar-brand  {
+    color: #8FBDAE;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    font-size: 18px;
+    color: #B9C2CA;
+
+}
+
+.navbar {
+    margin-bottom: 6rem;
+}
+
+.navbar-brand {
+    font-size: 22px;
+}    
+
+.navbar .navbar-nav li a:hover{
+    color: #8FBDAE!important;}
+
+/*Forms*/
+
+/*.accountform {*/
+
+/*    padding-top: 100px;*/
+
+/*}*/
+
+form {
+    width: 40%;
+    padding-top: 80px;
+    padding-left: 30px;
+}
+
+
+/*Footer*/
+
+.pb-3,
+.py-3 {
+    padding-bottom: 0.5rem!important;
+}
+
+.pt-3,
+.py-3 {
+    padding-top: 0.5rem!important;
+}
+
+.footer-style{
+    color: #778899;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+
+/*Table form tickets page*/
+.button-style {
+     width: 40%; 
+     padding-top: 0px!important; 
+     padding-left: 0px!important; 
+}
+
+.table th {
+    padding: .75rem;
+    vertical-align: top;
+     border-top: none; 
+}
+
+.font-style {
+    font-size: 20px;
+    color: #8FBDAE;
+    }
+    
+.btn {
+    
+    border: none;
+    border-radius: 300px;
+}
+ /*Custom button stylese*/
+.btn-default
+{
+  background-color: #8FBDAE;
+  color:#FFF;
+  border-color: #2F3E48;
+}
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
+
+  background-color: #270E58;
+  color:#FFF;
+  border-color: #31347B;
+ }
+ 
+ /*Custom icon scolors*/
+ .bug-icon-color{
+     color: #F4A4B2;
+     }
+ .feature-icon-color{
+    color: #EEE8AF;
+     }
+     
+  /*Custom heading margin*/   
+.heading-margin {
+    margin-top: 80px;
+}
+
+
+ /*ticket table style*/  
+.table-fade {
+   background: rgba(255,255,255,0.1);
+}
+
+/*miscellaneaous style*/  
+
+/*user name in comments section*/  
+.user-style{
+    color: #8FBDAE;
+    }
+    
+/*secondary color for  td in table section*/  
+/*.td-color{*/
+/*    color: #044584!important;*/
+/*    }*/

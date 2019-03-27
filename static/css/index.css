@@ -1,0 +1,65 @@
+html, body { 
+  background: url(../img/alien.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+/*Navbar*/
+.navbar-dark .navbar-brand  {
+    color: #8FBDAE;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    font-size: 18px;
+    color: #B9C2CA;
+}
+
+.navbar {
+    margin-bottom: 6rem; 
+    }
+
+.navbar-brand {
+    font-size: 22px;
+    
+}
+
+.navbar .navbar-nav li a:hover{
+    color: #8FBDAE!important;}
+
+/*Forms*/
+.accountform {
+    padding-top: 20px;
+}
+
+/*Footer*/
+.pb-3, .py-3 {
+    padding-bottom: 0.5rem!important;
+}
+
+.pt-3, .py-3 {
+    padding-top: 0.5rem!important;
+}
+
+
+/*Table form tickets page*/
+form {
+     width: 40%; 
+     padding-top: 0px!important; 
+     padding-left: 0px!important; 
+}
+
+.table td, .table th {
+    padding: .75rem;
+    vertical-align: top;
+     border-top: none; 
+}
+
+
+/*text color for index page*/
+.custom-color {
+    color: #FDF5EA;
+    }
