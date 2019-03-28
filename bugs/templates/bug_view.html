@@ -4,7 +4,7 @@
 <div class="container-fluid ml-5 mt-5">
     <div class="row">
         <div class=" col-sm-6 mb-4">
-            <h3><span class="badge badge-dark">#{{bug.id}}: {{bug.title}} {% endblock %} {% block content %}</span></h3>
+            <h2><span class="badge badge-dark">#{{bug.id}}: {{bug.title}} {% endblock %} {% block content %}</span></h2>
         </div>
     </div>
     <div class="row">
@@ -32,7 +32,8 @@
         </div>
     </div>
     <div class="row mb-5 ml-2">
-        <a href="{% url 'get_bugs' %}" class="btn btn-default">Go Back</a>
+        <a href="{% url 'get_bugs' %}" class="btn btn-default">All Tickets</a>
+        <a class="ml-5 btn btn-default" href="{% url 'profile' %}">My Profile</a>
     </div>
     <h2><span class="badge badge-dark">Comments</span></h2>
     <div class="row">

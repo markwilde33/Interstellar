@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load bootstrap_tags %}
+
+{% block content %}
+<div class="heading-margin ml-4">
+<h1>{% block page_heading %}Bug Form{% endblock %}</h1>
+</div>
+<form method="POST">
+    {% csrf_token %}
+
+    {{ bug_form | as_bootstrap }}
+
+    <button class="btn btn-success" type="submit">Create Ticket</button>
+</form>
+{% endblock %}

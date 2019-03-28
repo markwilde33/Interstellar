@@ -4,7 +4,7 @@ from django.core.urlresolvers import reverse
 from .forms import UserLoginForm, UserRegistrationForm
 from django.template.context_processors import csrf
 from django.contrib.auth.decorators import login_required
-from tickets.models import Ticket
+from bugs.models import Bug
 from django.contrib.auth.models import User
 
 
@@ -71,9 +71,21 @@ def register(request):
     return render(request, 'register.html', args)
     
 
+# @login_required
+# def profile(request):
+#     """
+#     A view that displays the profile page of a logged in user
+#     """
+   
+# bugs= Bug.objects.filter(author=request.user)
+# features = Feature.objects.filter(author=request.user)
+# return render(request, 'profile.html', { 'bugs':bugs, 'features':features })
+
+
 @login_required
 def profile(request):
-    """A view that displays the profile page of a logged in user"""
-   
-    tickets = Ticket.objects.filter(author=request.user)
-    return render(request, 'profile.html', { 'tickets':tickets})
+    """
+    A view that displays the profile page of a logged in user
+    """
+    bugs= Bug.objects.filter(author=request.user)
+    return render(request, 'profile.html', { 'bugs':bugs })

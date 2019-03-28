@@ -28,44 +28,41 @@
                             <th class="d-none d-md-table-cell font-style" scope="col">Description</th>
                             <th class="d-none d-md-table-cell font-style" scope="col">Views</th>
                             <th class="d-none d-md-table-cell font-style" scope="col">Upvotes</th>
-                            <th class="d-none d-md-table-cell font-style" scope="col">Status</th>
+                            <th class="font-style" scope="col">Status</th>
                             <th class="d-none d-md-table-cell font-style" scope="col">Date&nbsp;Created</th>
-                            <th class="font-style" scope="col">Type</th>
+                            <th class="font-style" scope="col"></th>
                             <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
-                        {% for ticket in tickets %}
+                        {% for bug in bugs %}
                         <tr>
                             <td>
-                                <h5>{{ ticket.title}}</h5>
+                                <h5>{{ bug.title}}</h5>
+                            </td>
+                             <td class='d-none d-md-table-cell'>
+                                {{ bug.description|truncatewords:20  }}
                             </td>
                             <td class='d-none d-md-table-cell'>
-                                {{ ticket.description}}
+                                <i class="far fa-eye"></i> {{ bug.views }}
                             </td>
                             <td class='d-none d-md-table-cell'>
-                                <i class="far fa-eye"></i> {{ ticket.views }}
+                                <i class="fa fa-thumbs-up upvotes"></i> {{ bug.upvotes }}
+                            </td>
+                            <td >
+                                <h6>{{ bug.status }}</h6>
                             </td>
                             <td class='d-none d-md-table-cell'>
-                                <i class="fa fa-thumbs-up upvotes"></i> {{ ticket.upvotes }}
+                                {{ bug.created_date.date }} at {{ bug.created_date.time}}
                             </td>
-                            <td class='d-none d-md-table-cell'>
-                                {{ ticket.status }}
-                            </td>
-                            <td class='d-none d-md-table-cell'>
-                                {{ ticket.created_date}}
-                            </td>
-                            {% if ticket.ticket_type == 'BUG' %}
                             <td>
-                                <i class="fa fa-bug bug fa-2x bug-icon-color"></i>
+                            <a href="{% url 'edit_bug' bug.id %}" class="btn btn-primary circle-maker">&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a>
                             </td>
-                            {% else %}
                             <td>
-                                <i class="fas fa-lightbulb fa-2x feature-icon-color"></i>
+                            <button href="{% url 'delete_bug' bug.id %}" class="btn btn-danger circle-maker">Delete</button> 
                             </td>
-                            {% endif %}
                             <td>
-                                <form class="button-style" method="GET" action="{% url 'ticket_view' ticket.id %}"><input class='btn btn-info' type="submit" value="View Ticket"></form>
+                                <form class="button-style" method="GET" action="{% url 'bug_view' bug.id %}"><input class='btn btn-info' type="submit" value="&nbsp;&nbsp;View&nbsp;&nbsp;"></form>
                             </td>
                         </tr>
                         {% endfor %}
