@@ -1,0 +1,62 @@
+{% extends 'base.html' %} {% load bootstrap_tags %} {% block page_heading %}
+<br>
+<br>
+<div class="container-fluid ml-5 mt-5">
+    <div class="row">
+        <div class=" col-sm-6 mb-4">
+            <h3><span class="badge badge-dark">#{{bug.id}}: {{bug.title}} {% endblock %} {% block content %}</span></h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class=" col-sm-6 ">
+            <h4><span class="badge badge-pill badge-info">Ticket Type: BUG </span></h4>
+            {% if bug.status == 'TO DO' %}
+            <h4><span class="badge badge-pill badge-primary">Status: To do</span></h4>
+            {% elif bug.status == "DOING" %}
+            <h4><span class="badge badge-pill badge-warning">Status: Doing</span></h4>
+            {% else %}
+            <h4><span class="badge badge-pill badge-success">Status: Done</span></h4>
+            {% endif %}
+            <h4><span class="badge badge-pill badge-danger mb-3">Upvotes: {{ bug.upvotes }}</span></h4>
+        </div>
+        <div class=" col-sm-6">
+            <h4><span class="badge badge-dark">Created: {{ bug.created_date.date }} at {{ bug.created_date.time}}</span></h4>
+            <h4><span class="badge badge-dark">Status Last Updated: {{ bug.most_recent_update.date }} at {{ bug.most_recent_update.time}}</span></h4>
+            <h4><span class="badge badge-dark"> Author: {{ bug.author }}</span></h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class=" col-sm-6 mt-3 mb-2">
+            <h2><span class="badge badge-dark">Description</span></h2>
+            <p>{{ bug.description }}</p>
+        </div>
+    </div>
+    <div class="row mb-5 ml-2">
+        <a href="{% url 'get_bugs' %}" class="btn btn-default">Go Back</a>
+    </div>
+    <h2><span class="badge badge-dark">Comments</span></h2>
+    <div class="row">
+        <div class="col-sm-6 ml-2">
+            {% for comment in bug_comments %}
+            <blockquote>
+                <h4 class="user-style">{{ comment.user }}</h4>
+                <p><small>{{ comment.created_date.date }} at {{ comment.created_date.time}}</small></p>
+                <p>{{ comment.comment }}</p>
+            </blockquote>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="row mb-5">
+        <div class="col-sm-12 mb-5">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %} {{ comment_form | as_bootstrap }}
+                <button type="submit" class="btn btn-info">Add Comment</button>
+            </form>
+        </div>
+        <br>
+        <br>
+        <br>
+    </div>
+</div>
+
+{% endblock %}
