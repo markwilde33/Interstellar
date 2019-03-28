@@ -26,18 +26,20 @@
         </div>
     </div>
     <div class="row">
-        <div class=" col-sm-6 mt-3 mb-2">
+        <div class=" col-sm-4 mt-3 mb-2">
             <h2><span class="badge badge-dark">Description</span></h2>
             <p>{{ bug.description }}</p>
         </div>
-    </div>
-    <div class="row mb-5 ml-2">
-        <a href="{% url 'get_bugs' %}" class="btn btn-default">All Tickets</a>
-        <a class="ml-5 btn btn-default" href="{% url 'profile' %}">My Profile</a>
+        <div class=" col-sm-8 mt-3 mb-2">
+            <form method="post" action="{% url 'upvote_bug' bug.id %}">
+                {% csrf_token %}
+                <button class="btn btn-warning btn-sm text-light" type="submit">Give Upvote</button>
+            </form>
+        </div>
     </div>
     <h2><span class="badge badge-dark">Comments</span></h2>
     <div class="row">
-        <div class="col-sm-6 ml-2">
+        <div class="col-sm-4 ml-2">
             {% for comment in bug_comments %}
             <blockquote>
                 <h4 class="user-style">{{ comment.user }}</h4>
@@ -47,6 +49,12 @@
             {% endfor %}
         </div>
     </div>
+    <div class="row">
+    <div class="col-sm-4 mt-5">
+            <a class="ml-4 btn btn-default btn-sm" href="{% url 'get_bugs' %}" >All Tickets</a>
+            <a class="ml-5 btn btn-default btn-sm" href="{% url 'profile' %}">My Profile</a>
+        </div>
+        </div>
     <div class="row mb-5">
         <div class="col-sm-12 mb-5">
             <form method="POST" enctype="multipart/form-data">

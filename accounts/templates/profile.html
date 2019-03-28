@@ -32,6 +32,7 @@
                             <th class="d-none d-md-table-cell font-style" scope="col">Date&nbsp;Created</th>
                             <th class="font-style" scope="col"></th>
                             <th scope="col"></th>
+                            <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -56,10 +57,10 @@
                                 {{ bug.created_date.date }} at {{ bug.created_date.time}}
                             </td>
                             <td>
-                            <a href="{% url 'edit_bug' bug.id %}" class="btn btn-primary circle-maker">&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a>
+                            <a href="{% url 'edit_bug' bug.id %}" class="btn btn-primary">&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a>
                             </td>
                             <td>
-                            <button href="{% url 'delete_bug' bug.id %}" class="btn btn-danger circle-maker">Delete</button> 
+                            <button href="{% url 'delete_bug' bug.id %}" class="btn btn-danger">Delete</button> 
                             </td>
                             <td>
                                 <form class="button-style" method="GET" action="{% url 'bug_view' bug.id %}"><input class='btn btn-info' type="submit" value="&nbsp;&nbsp;View&nbsp;&nbsp;"></form>

@@ -68,6 +68,22 @@ def create_or_edit_bug(request, pk=None):
 
 @login_required() 
 def delete_bug(request, pk):
-     bug =  get_object_or_404(Bug, pk=pk) 
-     bug.delete()
-     return redirect('profile')
+    """
+    Delete a bug
+    """
+    bug =  get_object_or_404(Bug, pk=pk) 
+    bug.delete()
+    return redirect('profile')
+     
+
+@login_required
+def upvote_bug(request, pk):
+    """
+    Upvote a bug
+    """
+    if request.method == "POST":
+        bug = get_object_or_404(Bug, pk=pk)
+        bug.upvotes += 1
+        bug.save()
+        return redirect(reverse('bug_view', kwargs={'pk': pk}))
+        
