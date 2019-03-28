@@ -5,6 +5,7 @@ html, body {
   -o-background-size: cover;
   background-size: cover;
   font-family: 'Roboto', sans-serif;
+  color: #FDF5EA;
 }
 
 
@@ -44,11 +45,16 @@ html, body {
     padding-top: 0.5rem!important;
 }
 
-.footer-style {
+.footer-style{
     color: #8FBDAE;
+}
+
+a {
+    color: #007bff;
     text-decoration: none;
     background-color: transparent;
 }
+
 a:hover {
     color: #B9C2CA;
     }

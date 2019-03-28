@@ -65,7 +65,7 @@ form {
 }
 
 .footer-style{
-    color: #778899;
+    color: #8FBDAE;
 }
 
 a {
@@ -74,6 +74,9 @@ a {
     background-color: transparent;
 }
 
+a:hover {
+    color: #B9C2CA;
+    }
 
 
 /*Table form tickets page*/
