@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load bootstrap_tags %}
+
+{% block content %}
+<div class="heading-margin ml-4">
+<h2>{% block page_heading %}Create or Edit a Feature{% endblock %}</h2>
+</div>
+<form method="POST">
+    {% csrf_token %}
+
+    {{ feature_form | as_bootstrap }}
+
+    <button class="btn btn-default" type="submit">Submit</button>
+</form>
+{% endblock %}

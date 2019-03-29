@@ -1,0 +1,71 @@
+{% extends 'base.html' %} {% load bootstrap_tags %} {% block page_heading %}
+<br>
+<br>
+<div class="container-fluid ml-5 mt-5">
+    <div class="row">
+        <div class=" col-sm-6 mb-4">
+            <h2><span class="badge badge-dark">#{{feature.id}}: {{feature.title}} {% endblock %} {% block content %}</span></h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class=" col-sm-6 ">
+            <h4><span class="badge badge-pill badge-info">Ticket Type: BUG </span></h4>
+            {% if feature.status == 'TO DO' %}
+            <h4><span class="badge badge-pill badge-primary">Status: To do</span></h4>
+            {% elif feature.status == "DOING" %}
+            <h4><span class="badge badge-pill badge-warning">Status: Doing</span></h4>
+            {% else %}
+            <h4><span class="badge badge-pill badge-success">Status: Done</span></h4>
+            {% endif %}
+            <h4><span class="badge badge-pill badge-danger mb-3">Upvotes: {{ feature.upvotes }}</span></h4>
+        </div>
+        <div class=" col-sm-6">
+            <h4><span class="badge badge-dark">Created: {{ feature.created_date.date }} at {{ feature.created_date.time}}</span></h4>
+            <h4><span class="badge badge-dark">Status Last Updated: {{ feature.most_recent_update.date }} at {{ feature.most_recent_update.time}}</span></h4>
+            <h4><span class="badge badge-dark"> Author: {{ feature.author }}</span></h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class=" col-sm-4 mt-3 mb-2">
+            <h2><span class="badge badge-dark">Description</span></h2>
+            <p>{{ feature.description }}</p>
+        </div>
+        <div class=" col-sm-8 mt-3 mb-2">
+            <form method="post" action="#">
+                {% csrf_token %}
+                <button class="btn btn-warning btn-sm text-light" type="submit">Give Upvote</button>
+            </form>
+        </div>
+    </div>
+    <h2><span class="badge badge-dark">Comments</span></h2>
+    <div class="row">
+        <div class="col-sm-4 ml-2">
+            {% for comment in feature_comments %}
+            <blockquote>
+                <h4 class="user-style">{{ comment.user }}</h4>
+                <p><small>{{ comment.created_date.date }} at {{ comment.created_date.time}}</small></p>
+                <p>{{ comment.comment }}</p>
+            </blockquote>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="row">
+    <div class="col-sm-4 mt-5">
+            <a class="ml-4 btn btn-default btn-sm" href="{% url 'get_features' %}" >All Tickets</a>
+            <a class="ml-5 btn btn-default btn-sm" href="{% url 'profile' %}">My Profile</a>
+        </div>
+        </div>
+    <div class="row mb-5">
+        <div class="col-sm-12 mb-5">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %} {{ comment_form | as_bootstrap }}
+                <button type="submit" class="btn btn-info">Add Comment</button>
+            </form>
+        </div>
+        <br>
+        <br>
+        <br>
+    </div>
+</div>
+
+{% endblock %}

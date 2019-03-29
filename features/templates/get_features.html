@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load bootstrap_tags %}
+{% load staticfiles %}
+{% block content %}
+<!-- Content -->
+<section class='table-section'>
+    <div class='container'>
+    <br>
+        <br>
+        <br>
+        <div class='row mt-5'>
+            {% block page_title %}<h1> All Features</h1>{% endblock %} 
+            <div class="table-responsive mt-5 pb-5">
+                <table class='table table-striped table-dark table-fade'>
+                    <thead>
+                        <tr>
+                            <th class="font-style" scope="col">Title</th>
+                            <th class="d-none d-md-table-cell font-style" scope="col">Author</th>
+                            <th class="d-none d-md-table-cell font-style" scope="col">Description</th>
+                            <th class="d-none d-md-table-cell font-style" scope="col">Views</th>
+                            <th class="d-none d-md-table-cell font-style" scope="col">Upvotes</th>
+                            <th class="font-style" scope="col">Status</th>
+                            <th class="d-none d-md-table-cell font-style" scope="col">Date&nbsp;Created</th>
+                            <th class="font-style" scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for feature in features %}
+                        <tr>
+                            <td>
+                                <h5>{{ feature.title}}</h5>
+                            </td>
+                            <td class='d-none d-md-table-cell'>
+                                {{ feature.author }}
+                            </td>
+                             <td class='d-none d-md-table-cell'>
+                                {{ feature.description|truncatewords:6 }}
+                            </td>
+                            <td class='d-none d-md-table-cell'>
+                                <i class="far fa-eye"></i> {{ feature.views }}
+                            </td>
+                            <td class='d-none d-md-table-cell'>
+                                <i class="fa fa-thumbs-up upvotes"></i> {{ feature.upvotes }}
+                            </td>
+                            <td >
+                                <h6>{{ feature.status }}</h6>
+                            </td>
+                            <td class='d-none d-md-table-cell'>
+                                {{ feature.created_date.date }} at {{ feature.created_date.time}}
+                            </td>
+                            <td >
+                                <i class="fa fa-bug bug fa-2x icon-color-one"></i>
+                            </td>
+                            <td>
+                                <form class="button-style" method="GET" action="{% url 'feature_view' bug.id %}"><input class='btn btn-info' type="submit" value="View Bug"></form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

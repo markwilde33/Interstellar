@@ -19,6 +19,7 @@ from django.contrib import admin
 from home.views import index
 from accounts import urls as urls_accounts
 from bugs import urls as urls_bugs
+from features import urls as urls_features
 from django.views import static
 
 urlpatterns = [
@@ -26,4 +27,5 @@ urlpatterns = [
     url(r'^$', index, name='index'),
     url(r'^accounts/', include(urls_accounts)),
     url(r'^bugs/', include(urls_bugs)),
+    url(r'^features/', include(urls_features)),
 ]
